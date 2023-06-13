@@ -16,6 +16,10 @@
   cursor: pointer;
 }
 
+.btn:hover .btnText {
+  color: rgb(255, 255, 255);
+}
+
 .btn:active {
   /* Click styles */
   background-color: darkgray;

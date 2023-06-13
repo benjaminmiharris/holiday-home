@@ -16,25 +16,72 @@
 }
 
 .content {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  /* height: 779px; */
   display: flex;
+  position: relative;
   flex-direction: row;
-  /* justify-content: center; */
-  /* align-items: start; */
-  padding: 20px;
-  opacity: 96%;
-  border: 1px solid red;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 }
 
 .image {
-  position: absolute;
-  top: 130px;
-  /* left: 50%; */
+  position: relative;
+  top: 80px;
+  left: 300px;
   width: 423px;
   height: 600px;
-  background-image: url("../../../../../public/About-image.jpg");
+  background-image: url("../../../../../public/about-img.JPG");
   background-position: center;
+  background-size: cover;
+}
+
+.textContent {
+  height: 50px;
+  width: 560px;
+  position: relative;
+  left: 400px;
+  top: -130px;
+}
+
+.image::before {
+  content: "";
+  width: 197px;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  transform: translateY(-50%);
+  left: 340px;
+  bottom: 550px;
+  border: 1px solid #404040;
+  transform: rotate(90deg);
+}
+
+.image::after {
+  content: "";
+  width: 197px;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  top: -15px;
+  position: absolute;
+  transform: translateY(-50%);
+  left: 390px;
+  border: 1px solid #404040;
+}
+
+.headerBox {
+  width: 112px;
+  background-color: #404040;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.heading {
+  font-size: 1.8rem;
+  line-height: 130%;
+}
+
+.about {
+  margin-top: 40px;
+  font-size: 1rem;
+  line-height: 200%;
 }
