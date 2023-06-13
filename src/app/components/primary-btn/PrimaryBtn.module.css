@@ -1,0 +1,22 @@
+.btn {
+  width: 220px;
+  height: 50px;
+  border: none;
+  /* box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75); */
+}
+
+.btnText {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+}
+
+.btn:hover {
+  /* Hover styles */
+  background-color: gray;
+  cursor: pointer;
+}
+
+.btn:active {
+  /* Click styles */
+  background-color: darkgray;
+}
