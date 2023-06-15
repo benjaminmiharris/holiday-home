@@ -1,0 +1,14 @@
+.container {
+  background-color: rgb(255, 255, 255);
+  height: 400px;
+  width: 450px;
+  padding: 50px;
+}
+
+.message {
+  margin-top: 8px;
+}
+
+.author {
+  font-size: 1rem;
+}
