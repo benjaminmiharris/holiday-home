@@ -5,7 +5,7 @@ const spinnaker = Spinnaker({ subsets: ["latin-ext"], weight: ["400"] });
 
 const Welcome = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={"about-section"}>
       <div className={styles.backgroundBlock}></div>
       <div className={styles.content}>
         <div className={styles.image}></div>

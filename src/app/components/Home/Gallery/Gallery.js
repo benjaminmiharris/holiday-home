@@ -16,7 +16,7 @@ import styles from "./Gallery.module.css";
 const Gallery = () => {
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} id={"gallery-section"}>
         <ul className={styles.galleryTopRowContainer}>
           <li className={styles.galleryTopRow}>
             <div className={styles.imageContainer}>

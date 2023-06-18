@@ -24,6 +24,13 @@ function Header() {
     };
   }, []);
 
+  const handleClickScroll = (location) => {
+    const element = document.getElementById(location);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Navbar
       bg="light"
@@ -40,11 +47,31 @@ function Header() {
           className="justify-content-end"
         >
           <Nav className="me-2 ">
-            <Nav.Link href="#home">About</Nav.Link>
-            <Nav.Link href="#features">Gallery</Nav.Link>
-            <Nav.Link href="#pricing">Floor Plan</Nav.Link>
-            <Nav.Link href="#pricing">Reviews</Nav.Link>
-            <Nav.Link href="#pricing">Book</Nav.Link>
+            <Nav.Link
+              href="#home"
+              onClick={() => handleClickScroll("about-section")}
+            >
+              About
+            </Nav.Link>
+            <Nav.Link
+              href="#features"
+              onClick={() => handleClickScroll("gallery-section")}
+            >
+              Gallery
+            </Nav.Link>
+            {/* <Nav.Link href="#pricing">Floor Plan</Nav.Link> */}
+            <Nav.Link
+              href="#pricing"
+              onClick={() => handleClickScroll("testemonials-section")}
+            >
+              Reviews
+            </Nav.Link>
+            <Nav.Link
+              href="#pricing"
+              onClick={() => handleClickScroll("booking-section")}
+            >
+              Book
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

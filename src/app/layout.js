@@ -1,8 +1,9 @@
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Spinnaker, Lato } from "next/font/google";
+import { Lato } from "next/font/google";
 import Header from "./components/NavBar/Header";
+import Footer from "./components/Footer/Footer";
 
 const lato = Lato({ subsets: ["latin-ext"], weight: ["300", "700"] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <body className={lato.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
