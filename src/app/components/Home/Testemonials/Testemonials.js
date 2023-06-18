@@ -4,7 +4,7 @@ import styles from "./Testemonials.module.css";
 
 const Testemonials = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={"testemonials-section"}>
       <div className={styles.backgroundBlock}>
         <div className={styles.leftIcon}>
           <svg

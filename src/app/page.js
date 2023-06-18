@@ -1,3 +1,4 @@
+import Booking from "./components/Home/Booking/Booking";
 import Gallery from "./components/Home/Gallery/Gallery";
 import Banner from "./components/Home/HomeBanner/Banner";
 import Testemonials from "./components/Home/Testemonials/Testemonials";
@@ -11,6 +12,7 @@ export default function Home() {
       <Welcome />
       <Gallery />
       <Testemonials />
+      <Booking />
     </div>
   );
 }

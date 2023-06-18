@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  height: 406px;
+  background-color: #141513;
+  margin-top: 300px;
+}
+
+.logo {
+  color: white;
+  text-align: center;
+  position: relative;
+  bottom: 100px;
+}
+
+.logo::after {
+  content: "";
+  width: 60%;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  top: 100px;
+  position: absolute;
+  transform: translateY(-50%);
+  border: 1px solid #404040;
+  left: 20%;
+}
+
+.locationContainer {
+  position: relative;
+  bottom: 200px;
+  text-align: center;
+}
+.map {
+  width: 60%;
+  height: 300px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: 20%;
+  color: white;
+}
+
+.termsConditons {
+  position: relative;
+  left: -5%;
+}

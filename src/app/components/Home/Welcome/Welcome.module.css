@@ -69,8 +69,9 @@
 }
 
 .headerBox {
-  width: 112px;
-  background-color: #404040;
+  width: 120px;
+  padding: 8px;
+  background-color: #2f2f2f;
   color: rgb(255, 255, 255);
   text-align: center;
 }
