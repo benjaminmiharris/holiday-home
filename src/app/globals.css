@@ -93,3 +93,8 @@ body {
   font-size: 1rem;
   color: #ffffff;
 }
+
+h6 {
+  margin-bottom: 0;
+  padding: 0;
+}

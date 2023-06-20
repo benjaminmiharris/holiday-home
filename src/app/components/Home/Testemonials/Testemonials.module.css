@@ -21,15 +21,40 @@
 
 .leftIcon {
   margin-right: 15px;
+  width: 120px;
+  height: 225px;
+}
+
+.rightIcon {
+  margin-right: 0px;
+  width: 120px;
+  height: 225px;
 }
 
 .commentsBlock {
   position: relative;
   top: 180px;
   z-index: 1;
-  display: flex;
-  justify-content: space-evenly;
+
   width: 85%;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (max-width: 760px) {
+  .backgroundBlock {
+    height: 30%;
+  }
+
+  .commentsBlock {
+    top: 130px;
+  }
+
+  .leftIcon {
+    display: none;
+  }
+
+  .rightIcon {
+    display: none;
+  }
 }

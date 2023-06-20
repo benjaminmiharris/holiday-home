@@ -2,13 +2,11 @@
   position: relative;
   top: 50px;
   width: 100%;
-  height: 90vh;
-  overflow: hidden;
+  height: 907px;
+  display: flex;
 }
 
 .image {
-  position: absolute;
-  top: 0;
   left: 50%;
   width: 50%;
   height: 100%;
@@ -18,8 +16,6 @@
 }
 
 .content {
-  position: absolute;
-  top: 0;
   width: 50%;
   height: 100%;
   display: flex;
@@ -64,9 +60,11 @@
 }
 
 .bottomText {
-  margin-top: 10px;
+  margin-top: 3%;
+  margin-bottom: 6%;
   width: 65%;
   height: 100px;
+  line-height: 200%;
 }
 
 .line::above {
@@ -77,4 +75,116 @@
   background-color: #ffffff;
   top: 50px;
   position: absolute;
+}
+
+@media screen and (max-width: 1158px) {
+  .heading {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1019px) {
+  .container {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    background-color: #404040;
+    padding: 0px;
+    opacity: 96%;
+    text-align: center;
+  }
+
+  .contentText {
+    position: relative;
+    /* left: 7%; */
+    text-align: center;
+    margin-top: 10%;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 10%;
+    left: 0;
+  }
+
+  .topText {
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 0%;
+    font-size: 1.2rem;
+    top: 40px;
+  }
+
+  .topText::before {
+    content: "";
+    width: 1px;
+    height: 96px;
+    background-color: rgb(255, 255, 255);
+    top: -170%;
+    position: absolute;
+    transform: translateY(-50%);
+    left: 49%;
+  }
+  .heading {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 3.3rem;
+  }
+
+  .bottomText {
+    margin: auto;
+    width: 80%;
+    position: relative;
+    top: -60px;
+  }
+
+  .btnContainer {
+    position: relative;
+    top: -50px;
+  }
+
+  .line::above {
+    display: none;
+  }
+
+  .image {
+    position: relative;
+    left: 0%;
+    width: 100%;
+    height: 450px;
+    background-image: url("../../../../../public/bedroom-banner.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .topText::before {
+    display: none;
+  }
+
+  .contentText {
+    position: relative;
+    /* left: 7%; */
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 8%;
+    left: 0;
+  }
+
+  .heading {
+    margin-bottom: 80px;
+  }
+
+  .bottomText {
+    margin-bottom: 20px;
+  }
 }
