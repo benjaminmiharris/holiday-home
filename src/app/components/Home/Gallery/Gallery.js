@@ -36,7 +36,7 @@ const Gallery = () => {
                 height={427}
                 alt="Picture of the author"
                 src={Img2}
-                className={styles.image}
+                className={`${styles.image} ${styles.imageSmall}`}
               />
             </div>
           </li>

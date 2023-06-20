@@ -19,9 +19,9 @@ const Footer = () => {
         LEV RETREAT
       </h2>
       <div className={styles.details}>
-        <h5>GET IN TOUCH</h5>
+        <h6 className={styles.detailsBig}>GET IN TOUCH</h6>
         <p className={styles.termsConditons}>Terms & Conditions</p>
-        <h5>BOOK</h5>
+        <h6 className={styles.detailsBig}> BOOK</h6>
       </div>
     </div>
   );

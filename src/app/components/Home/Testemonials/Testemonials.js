@@ -1,15 +1,39 @@
+"use client";
+
 import React from "react";
 import Comment from "../../comment/Comment";
 import styles from "./Testemonials.module.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const Testemonials = () => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
   return (
     <div className={styles.container} id={"testemonials-section"}>
       <div className={styles.backgroundBlock}>
         <div className={styles.leftIcon}>
           <svg
-            width="120"
-            height="255"
+            className={styles.leftIcon}
+            // width="120"
+            // height="255"
             viewBox="0 0 120 255"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -22,8 +46,7 @@ const Testemonials = () => {
         </div>
         <div className={styles.rightIcon}>
           <svg
-            width="120"
-            height="255"
+            className={styles.rightIcon}
             viewBox="0 0 120 255"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,24 +59,33 @@ const Testemonials = () => {
         </div>
       </div>
       <div className={styles.commentsBlock}>
-        <Comment
-          title={"Best Place in RBS A"}
-          numberOfStars={5}
-          quote={`"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        <Carousel
+          responsive={responsive}
+          swipeable={true}
+          infinite={true}
+          keyBoardControl={true}
+          autoPlay={true}
+          autoPlaySpeed={4000}
+        >
+          <Comment
+            title={"Best Place in RBS A"}
+            numberOfStars={5}
+            quote={`"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat."`}
-          guestName={"Jordan Gold"}
-        />
-        <Comment
-          title={"Decent BBQ"}
-          numberOfStars={4}
-          quote={`"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            guestName={"Jordan Gold"}
+          />
+          <Comment
+            title={"Decent BBQ"}
+            numberOfStars={4}
+            quote={`"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat."`}
-          guestName={"Benj Harris"}
-        />
+            guestName={"Benj Harris"}
+          />
+        </Carousel>
       </div>
     </div>
   );

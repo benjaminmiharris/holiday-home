@@ -33,7 +33,7 @@ const Booking = () => {
             />
           </div>
           <div>
-            <div className={styles.message}>Message will be displayed here</div>
+            {/* <div className={styles.message}>Message will be displayed here</div> */}
           </div>
           <div className={styles.bookingBtnContainer}>
             <PrimaryBtn />
