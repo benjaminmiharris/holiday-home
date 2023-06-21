@@ -1,10 +1,15 @@
 "use client";
 import PrimaryBtn from "../../primary-btn/PrimaryBtn";
 import styles from "./Booking.module.css";
-import DateRangePicker from "@wojtekmaj/react-daterange-picker";
+// import DateRangePicker from "@wojtekmaj/react-daterange-picker";
 import "@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css";
 import "react-calendar/dist/Calendar.css";
 import { useState } from "react";
+
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 
 import { Spinnaker } from "next/font/google";
 const spinnaker = Spinnaker({ subsets: ["latin-ext"], weight: ["400"] });
@@ -26,11 +31,14 @@ const Booking = () => {
             talk about it and leave reviews.
           </p>
           <div className={styles.bookingCalendar}>
-            <DateRangePicker
-              className={styles.calendarCstm}
-              onChange={onChange}
-              value={value}
-            />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["DateRangePicker"]}>
+                <DateRangePicker
+                  localeText={{ start: "Check-in", end: "Check-out" }}
+                  calendars={2}
+                />
+              </DemoContainer>
+            </LocalizationProvider>
           </div>
           <div>
             {/* <div className={styles.message}>Message will be displayed here</div> */}
