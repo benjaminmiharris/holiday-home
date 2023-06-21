@@ -16,7 +16,7 @@
 .image {
   width: 50%;
   height: 100%;
-  background-image: url("../../../../../public/about-img.jpg");
+  background-image: url("../../../../../public/about-image.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -78,7 +78,7 @@
   .image {
     width: 100%;
     height: 40%;
-    background-image: url("../../../../../public/gallery-img-1.jpg");
+    background-image: url("../../../../../public/gallery-image-1.jpg");
     background-position: center;
     background-size: none;
   }
