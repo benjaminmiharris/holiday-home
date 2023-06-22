@@ -5,6 +5,8 @@ import styles from "./Booking.module.css";
 import "@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css";
 import "react-calendar/dist/Calendar.css";
 import { useState } from "react";
+import Image from "next/image";
+import WeclomeImage from "../../../../../public/gallery-image-1.jpg";
 
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
@@ -21,6 +23,8 @@ const Booking = () => {
     <div className={styles.container} id={"booking-section"}>
       <div className={styles.bookingContainer}>
         {/* <div className={styles.image}></div> */}
+        <Image src={WeclomeImage} className={styles.image} />
+
         <div className={styles.calendarContainer}>
           <p className={styles.headerBox}>2. Booking</p>
           <h2 style={spinnaker.style} className={styles.header}>
