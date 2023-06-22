@@ -20,7 +20,7 @@ const Booking = () => {
   return (
     <div className={styles.container} id={"booking-section"}>
       <div className={styles.bookingContainer}>
-        <div className={styles.image}></div>
+        {/* <div className={styles.image}></div> */}
         <div className={styles.calendarContainer}>
           <p className={styles.headerBox}>2. Booking</p>
           <h2 style={spinnaker.style} className={styles.header}>
