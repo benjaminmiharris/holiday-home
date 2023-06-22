@@ -8,7 +8,7 @@ const Welcome = () => {
     <div className={styles.container} id={"about-section"}>
       <div className={styles.backgroundBlock}></div>
       <div className={styles.content}>
-        <div className={styles.image}></div>
+        {/* <div className={styles.image}></div> */}
         <div className={styles.textContent}>
           <p className={styles.headerBox}>1. Hello There</p>
           <h2 style={spinnaker.style} className={`${styles.heading} `}>

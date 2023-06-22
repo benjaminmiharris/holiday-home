@@ -30,7 +30,7 @@
   left: 300px;
   width: 423px;
   height: 600px;
-  background-image: url("../../../../../public/about-image.jpg");
+  /* background-image: url("../../../../../public/about-image.jpg"); */
   background-position: center;
   background-size: cover;
 }
