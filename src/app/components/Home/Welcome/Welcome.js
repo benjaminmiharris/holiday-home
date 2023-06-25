@@ -3,7 +3,8 @@ import styles from "./Welcome.module.css";
 import { Spinnaker } from "next/font/google";
 const spinnaker = Spinnaker({ subsets: ["latin-ext"], weight: ["400"] });
 
-import WelcomeImage from "../../../../../public/about-image.jpg";
+import WelcomeImage from "../../../../../public/home-about-image.jpg";
+
 import Image from "next/image";
 
 const Welcome = () => {
