@@ -3,7 +3,7 @@ import styles from "./Welcome.module.css";
 import { Spinnaker } from "next/font/google";
 const spinnaker = Spinnaker({ subsets: ["latin-ext"], weight: ["400"] });
 
-import WeclomeImage from "../../../../../public/about-image.jpg";
+import WelcomeImage from "../../../../../public/about-image.jpg";
 import Image from "next/image";
 
 const Welcome = () => {
@@ -11,7 +11,7 @@ const Welcome = () => {
     <div className={styles.container} id={"about-section"}>
       <div className={styles.backgroundBlock}></div>
       <div className={styles.content}>
-        <Image src={WeclomeImage} className={styles.image} />
+        <Image src={WelcomeImage} className={styles.image} />
         <div className={styles.textContent}>
           <p className={styles.headerBox}>1. Hello There</p>
           <h2 style={spinnaker.style} className={`${styles.heading} `}>
