@@ -30,8 +30,8 @@ const Booking = () => {
             Booking Calendar
           </h2>
           <p className={styles.bookingMessage}>
-            This house is one of the favorite houses of our clients, so they
-            talk about it and leave reviews.
+            Book now and secure your unforgettable holiday getaway in Ramat
+            Shilo, Ramat Bet Shemesh, Israel. Don't miss out!
           </p>
           <div className={styles.bookingCalendar}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>

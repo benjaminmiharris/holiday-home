@@ -18,11 +18,12 @@ const Welcome = () => {
             Welcome to your world of relaxation. Relax and have fun
           </h2>
           <p className={styles.about}>
-            The passage experienced a surge in popularity during the 1960s when
-            Letraset used it on their dry-transfer sheets, and again during the
-            90s as desktop publishers bundled the text with their software.
-            Today it's seen all around the web; on templates, websites, and
-            stock designs.
+            Escape to a delightful holiday getaway in Ramat Shilo, Ramat Bet
+            Shemesh, Israel. This charming apartment offers spacious living
+            areas, a fully equipped kitchen, comfortable bedrooms, and
+            well-appointed bathrooms. Experience relaxation and adventure in a
+            beautiful setting. Book your stay today for an unforgettable holiday
+            experience.
           </p>
         </div>
       </div>

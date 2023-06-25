@@ -30,6 +30,7 @@
     "react-icons": "^4.9.0",
     "react-multi-carousel": "^2.8.4",
     "react-photo-album": "^2.2.2",
+    "sharp": "^0.32.1",
     "styled-components": "^5.3.11",
     "url-loader": "^4.1.1",
     "utility": "^1.18.0"
