@@ -39,7 +39,7 @@ const Banner = () => {
             FOR YOUR VACATION
           </h1>
           <p className={`${styles.bottomText} text`}>
-            Leave the city behind to explore the great outdoors at our Outposts
+            Leave the city behind to explore the great outdoors at our Outpost
             in the Ramat Shilo community, Ramat Bet Shemesh, Israel.
           </p>
           <div className={styles.btnContainer}>
