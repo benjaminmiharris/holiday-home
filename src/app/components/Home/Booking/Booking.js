@@ -14,6 +14,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 
 import { Spinnaker } from "next/font/google";
+import Calendar from "./Calendar";
 const spinnaker = Spinnaker({ subsets: ["latin-ext"], weight: ["400"] });
 
 const Booking = () => {
@@ -33,22 +34,24 @@ const Booking = () => {
             Book now and secure your unforgettable holiday getaway in Ramat
             Shilo, Ramat Bet Shemesh, Israel. Don't miss out!
           </p>
+
           <div className={styles.bookingCalendar}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Calendar />
+            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DateRangePicker"]}>
                 <DateRangePicker
                   localeText={{ start: "Check-in", end: "Check-out" }}
                   calendars={2}
                 />
               </DemoContainer>
-            </LocalizationProvider>
+            </LocalizationProvider> */}
           </div>
           <div>
             {/* <div className={styles.message}>Message will be displayed here</div> */}
           </div>
-          <div className={styles.bookingBtnContainer}>
+          {/* <div className={styles.bookingBtnContainer}>
             <PrimaryBtn />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

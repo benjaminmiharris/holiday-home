@@ -46,6 +46,7 @@
 
 .bookingCalendar {
   margin-top: 2%;
+  z-index: 1;
 }
 
 .message {
