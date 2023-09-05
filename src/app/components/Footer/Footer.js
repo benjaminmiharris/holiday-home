@@ -16,7 +16,7 @@ const Footer = () => {
         ></iframe>
       </div>
       <h2 style={spinnaker.style} className={styles.logo}>
-        LEV RETREAT
+        RAMAT SHILO RETREAT{" "}
       </h2>
       <div className={styles.details}>
         <h6 className={styles.detailsBig}>GET IN TOUCH</h6>

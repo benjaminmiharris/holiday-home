@@ -40,7 +40,7 @@ function Header() {
       } fixed-top`}
     >
       <Container>
-        <Navbar.Brand href="#home">LEV RETREAT</Navbar.Brand>
+        <Navbar.Brand href="#home">RAMAT SHILO RETREAT</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse
           id="responsive-navbar-nav"

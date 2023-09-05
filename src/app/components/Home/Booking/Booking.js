@@ -8,18 +8,13 @@ import { useState } from "react";
 import Image from "next/image";
 import WelcomeImage from "../../../../../public/gallery-image-1.jpg";
 
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
-
 import { Spinnaker } from "next/font/google";
 import Calendar from "./Calendar";
+import CalendarReact from "../../calendar/CalendarReact";
+
 const spinnaker = Spinnaker({ subsets: ["latin-ext"], weight: ["400"] });
 
 const Booking = () => {
-  const [value, onChange] = useState(new Date());
-
   return (
     <div className={styles.container} id={"booking-section"}>
       <div className={styles.bookingContainer}>
@@ -36,15 +31,8 @@ const Booking = () => {
           </p>
 
           <div className={styles.bookingCalendar}>
-            <Calendar />
-            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["DateRangePicker"]}>
-                <DateRangePicker
-                  localeText={{ start: "Check-in", end: "Check-out" }}
-                  calendars={2}
-                />
-              </DemoContainer>
-            </LocalizationProvider> */}
+            <CalendarReact />
+            {/* <BookingForm /> */}
           </div>
           <div>
             {/* <div className={styles.message}>Message will be displayed here</div> */}

@@ -5,7 +5,7 @@ const Calendar = () => {
     // Load the bookingmood.com embed.js script dynamically
     const script = document.createElement("script");
     script.src = "https://bookingmood.com/js/embed.js";
-    script.async = true;
+    // script.async = true;
     document.body.appendChild(script);
 
     // Clean up the script when the component is unmounted
@@ -25,7 +25,7 @@ const Calendar = () => {
       data-stay-expanded="false"
       data-date-visibility="all"
       data-initial-date="today"
-      data-autocomplete-date-selection="false"
+      data-autocomplete-date-selection="true"
       data-display-week-numbers="false"
       data-display-product-name="false"
       data-number-of-months=""
