@@ -1,13 +1,11 @@
-"use client";
-
 import React from "react";
+import Image from "next/image";
 
 import Img1 from "../../../../../public/gallery-image-1.jpg";
 import Img2 from "../../../../../public/gallery-image-2.jpg";
 import Img3 from "../../../../../public/gallery-image-7.jpg";
 import Img4 from "../../../../../public/gallery-image-4.jpg";
 import Img5 from "../../../../../public/gallery-image-6.jpg";
-import Image from "next/image";
 
 import styles from "./Gallery.module.css";
 
