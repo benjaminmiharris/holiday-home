@@ -20,7 +20,7 @@ const Gallery = () => {
                 width={657}
                 height={427}
                 alt="Picture of the author"
-                src={Img1}
+                src="/gallery-image-1.jpg"
                 className={styles.image}
               />
             </div>
