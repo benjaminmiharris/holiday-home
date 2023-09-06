@@ -12,7 +12,7 @@ const Welcome = () => {
     <div className={styles.container} id={"about-section"}>
       <div className={styles.backgroundBlock}>
         <div className={styles.content}>
-          <Image src={WelcomeImage} className={styles.image} />
+          <img src={WelcomeImage.src} className={styles.image} />
           <div className={styles.textContent}>
             <p className={styles.headerBox}>1. Hello There</p>
             <h2 style={spinnaker.style} className={`${styles.heading} `}>

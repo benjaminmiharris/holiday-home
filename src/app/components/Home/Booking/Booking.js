@@ -18,7 +18,7 @@ const Booking = () => {
   return (
     <div className={styles.container} id={"booking-section"}>
       <div className={styles.bookingContainer}>
-        <Image src={WelcomeImage} className={styles.image} />
+        <img src={WelcomeImage.src} className={styles.image} />
 
         <div className={styles.calendarContainer}>
           <p className={styles.headerBox}>2. Booking</p>
