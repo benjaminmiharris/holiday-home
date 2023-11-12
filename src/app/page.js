@@ -6,15 +6,15 @@ import Testemonials from "./components/Home/Testemonials/Testemonials";
 import Welcome from "./components/Home/Welcome/Welcome";
 import styles from "./page.module.css";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
+("");
 
 function Home({ response }) {
-  // console.log("response", response);
-
   return (
     <>
       <FloatingWhatsApp
         accountName="Ramat Shilo Retreat"
-        phoneNumber="+972 53-524-5115"
+        phoneNumber="+972535245115"
+        avatar="https://www.ramatshilo-retreat.com/_next/static/media/home-about-image.2b721143.jpg"
       />
 
       <div className={styles.main}>

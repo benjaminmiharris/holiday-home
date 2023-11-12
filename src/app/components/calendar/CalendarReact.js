@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -24,6 +25,7 @@ export default function CalendarReact() {
   const [numberOfGuests, setNumberOfGuests] = useState();
   const [addtionalBookingDetails, setAddtionalBookingDetails] = useState();
   const [loadEventData, setLoadEventData] = useState(false);
+  const [showSubmitError, setShowSubmitError] = useState(false);
 
   const [excludeDates, setExcludeDates] = useState([]);
 
@@ -33,6 +35,30 @@ export default function CalendarReact() {
   );
 
   let eventData = data;
+
+  const sendEmail = (newEvent) => {
+    console.log("email text", newEvent);
+
+    emailjs
+      .send(
+        "service_ry7pqjo",
+        "template_urxmm6h",
+        {
+          description: newEvent.description,
+          startdate: newEvent.start,
+          enddate: newEvent.end,
+        },
+        "Q8iP14Sf9fa7WcnHK"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   useEffect(() => {
     if (eventData && true) {
@@ -77,6 +103,18 @@ export default function CalendarReact() {
     },
   };
 
+  const handleBookingSubmission = () => {
+    // Check if required fields are filled
+    if (guestFullName && guestEmail && numberOfGuests) {
+      // All required fields are filled, proceed with submission
+      createCalendarEventHandler(newEvent);
+    } else {
+      setShowSubmitError(true);
+      // Display an error message or handle the case where not all required fields are filled
+      console.error("Please fill in all required fields.");
+    }
+  };
+
   const createCalendarEventHandler = async (event) => {
     setLoadEventData(true);
     try {
@@ -101,6 +139,7 @@ export default function CalendarReact() {
           console.error("Error creating event:", error.message);
         });
       setLoadEventData(!loadEventData);
+      sendEmail(newEvent);
     } catch (error) {
       console.error("An unexpected error occurred:", error.message);
     }
@@ -123,6 +162,7 @@ export default function CalendarReact() {
           }}
           isClearable
           excludeDateIntervals={excludeDates}
+          required
         />
 
         <DatePicker
@@ -140,6 +180,7 @@ export default function CalendarReact() {
           }}
           isClearable
           excludeDateIntervals={excludeDates}
+          required
         />
       </div>
     );
@@ -150,7 +191,8 @@ export default function CalendarReact() {
       {loadEventData ? (
         <p style={{ color: "white", fontSize: "1.2rem" }}>
           Thank you for submitting your request. We will reach out to you to
-          confirm the booking and proceed with the payment process.
+          confirm the booking and proceed with the payment process. This booking
+          will be reserved for 24hr prior to the deposit being paid.
         </p>
       ) : (
         <div>
@@ -163,11 +205,15 @@ export default function CalendarReact() {
               aria-label="Full Name"
               placeholder="Full Name"
               onChange={(e) => setGuestFullName(e.target.value)}
+              required
+              isInvalid={showSubmitError && !guestFullName}
             />
             <Form.Control
               type="email"
               placeholder="Email"
               onChange={(e) => setGuestEmail(e.target.value)}
+              required
+              isInvalid={showSubmitError && !guestEmail}
             />
           </InputGroup>
 
@@ -176,11 +222,14 @@ export default function CalendarReact() {
               aria-label="Mobile"
               placeholder="Mobile"
               onChange={(e) => setGuestContactNumber(e.target.value)}
+              required
             />
             <Form.Control
               type="number"
               placeholder="No of Guests"
               onChange={(e) => setNumberOfGuests(e.target.value)}
+              required
+              isInvalid={showSubmitError && !guestContactNumber}
             />
           </InputGroup>
 
@@ -194,7 +243,7 @@ export default function CalendarReact() {
           </Form.Group>
 
           <div className={styles.bookingBtnContainer}>
-            <PrimaryBtn onClick={() => createCalendarEventHandler(newEvent)} />
+            <PrimaryBtn onClick={handleBookingSubmission} />
           </div>
         </div>
       )}
