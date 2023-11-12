@@ -23,28 +23,12 @@ export default function CalendarReact() {
   const [guestContactNumber, setGuestContactNumber] = useState();
   const [numberOfGuests, setNumberOfGuests] = useState();
   const [addtionalBookingDetails, setAddtionalBookingDetails] = useState();
+  const [loadEventData, setLoadEventData] = useState(false);
 
   const [excludeDates, setExcludeDates] = useState([]);
 
-  const newEvent = {
-    summary: guestFullName,
-    description:
-      guestEmail +
-      guestContactNumber +
-      numberOfGuests +
-      addtionalBookingDetails,
-    start: {
-      dateTime: startDate,
-      timeZone: "Asia/Kolkata",
-    },
-    end: {
-      dateTime: endDate,
-      timeZone: "Asia/Kolkata",
-    },
-  };
-
   const { data, error } = useSWR(
-    "http://localhost:3005/getCalendarEvents",
+    "https://lev-server-zx35.onrender.com/getCalendarEvents",
     fetcher
   );
 
@@ -68,7 +52,59 @@ export default function CalendarReact() {
 
       return setExcludeDates(convertedEventData);
     }
-  }, [eventData]);
+  }, [eventData, loadEventData]);
+
+  function getBrowserTimeZone() {
+    // Get the time zone name
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    return timeZone;
+  }
+
+  const newEvent = {
+    summary: `Side Booking - ${guestFullName}`,
+    description: `Contact Email: ${guestEmail},  
+      Contact Number: ${guestContactNumber}, 
+      Number of Guests: ${numberOfGuests}, 
+      Additional details: ${addtionalBookingDetails}`,
+    start: {
+      dateTime: startDate,
+      timeZone: getBrowserTimeZone(),
+    },
+    end: {
+      dateTime: endDate,
+      timeZone: getBrowserTimeZone(),
+    },
+  };
+
+  const createCalendarEventHandler = async (event) => {
+    setLoadEventData(true);
+    try {
+      fetch("https://lev-server-zx35.onrender.com/createEvent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(event),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          console.log("it worked");
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Event created successfully:", data);
+        })
+        .catch((error) => {
+          console.error("Error creating event:", error.message);
+        });
+      setLoadEventData(!loadEventData);
+    } catch (error) {
+      console.error("An unexpected error occurred:", error.message);
+    }
+  };
 
   const dateRangePickerRender = (excludeDates) => {
     return (
@@ -110,51 +146,58 @@ export default function CalendarReact() {
   };
 
   return (
-    <div>
-      <InputGroup className="mb-3">
-        {excludeDates.length > 0 ? dateRangePickerRender(excludeDates) : null}
-      </InputGroup>
+    <>
+      {loadEventData ? (
+        <p style={{ color: "white", fontSize: "1.2rem" }}>
+          Thank you for submitting your request. We will reach out to you to
+          confirm the booking and proceed with the payment process.
+        </p>
+      ) : (
+        <div>
+          <InputGroup className="mb-3">
+            {excludeDates.length > 0 && dateRangePickerRender(excludeDates)}
+          </InputGroup>
 
-      <InputGroup className="mb-3">
-        <Form.Control
-          aria-label="First name"
-          placeholder="Full Name"
-          onChange={(e) => setGuestFullName(e.target.value)}
-        />
-        <Form.Control
-          type="email"
-          placeholder="Email"
-          onChange={(e) => setGuestEmail(e.target.value)}
-        />
-      </InputGroup>
-      <InputGroup className="mb-3">
-        <Form.Control
-          aria-label="First name"
-          placeholder="Mobile"
-          onChange={(e) => setGuestContactNumber(e.target.value)}
-        />
-        <Form.Control
-          type="number"
-          placeholder="No of Guests"
-          onChange={(e) => setNumberOfGuests(e.target.value)}
-        />
-      </InputGroup>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Control
-          as="textarea"
-          rows={3}
-          placeholder="Additional details"
-          onChange={(e) => setAddtionalBookingDetails(e.target.value)}
-        />
-      </Form.Group>
+          <InputGroup className="mb-3">
+            <Form.Control
+              aria-label="Full Name"
+              placeholder="Full Name"
+              onChange={(e) => setGuestFullName(e.target.value)}
+            />
+            <Form.Control
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setGuestEmail(e.target.value)}
+            />
+          </InputGroup>
 
-      <div className={styles.bookingBtnContainer}>
-        <PrimaryBtn
-          onClick={() => {
-            console.log(newEvent);
-          }}
-        />
-      </div>
-    </div>
+          <InputGroup className="mb-3">
+            <Form.Control
+              aria-label="Mobile"
+              placeholder="Mobile"
+              onChange={(e) => setGuestContactNumber(e.target.value)}
+            />
+            <Form.Control
+              type="number"
+              placeholder="No of Guests"
+              onChange={(e) => setNumberOfGuests(e.target.value)}
+            />
+          </InputGroup>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder="Additional details"
+              onChange={(e) => setAddtionalBookingDetails(e.target.value)}
+            />
+          </Form.Group>
+
+          <div className={styles.bookingBtnContainer}>
+            <PrimaryBtn onClick={() => createCalendarEventHandler(newEvent)} />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
