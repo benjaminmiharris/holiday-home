@@ -27,16 +27,10 @@ const Booking = () => {
           </h2>
           <p className={styles.bookingMessage}>
             Book now and secure your unforgettable holiday getaway in Ramat
-            Shilo, Ramat Bet Shemesh, Israel. Don't miss out!
+            Shilo, Ramat Bet Shemesh, Israel. The cost per night is 400 NIS with
+            discounted rates available for longer stays*.
+            <br /> *pricing for shabbat and festivals - on application.
           </p>
-          <p className={styles.bookingMessage}>
-            The cost per night is 400 NIS with discounted rates availible for
-            longer stays*.
-          </p>
-          <p className={styles.bookingMessage}>
-            *pricing for shabbat and festivals to be confirmed.
-          </p>
-
           <div className={styles.bookingCalendar}>
             <CalendarReact />
             {/* <BookingForm /> */}

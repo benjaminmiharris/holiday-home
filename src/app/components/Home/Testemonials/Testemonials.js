@@ -70,20 +70,15 @@ const Testemonials = () => {
           <Comment
             title={"Best Place in RBS A"}
             numberOfStars={5}
-            quote={`"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat."`}
+            quote={`"fdsfsfd."`}
             guestName={"Jordan Gold"}
           />
           <Comment
-            title={"Decent BBQ"}
-            numberOfStars={4}
-            quote={`"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat."`}
-            guestName={"Benj Harris"}
+            title={"Highly recommend"}
+            numberOfStars={5}
+            quote={`"Highly recommended the Golds rental unit.  The place is clean, fresh and beautifully furnished.  All amenities included. 
+            An oasis in the heart of Ramat Shilo.  Our guest had a lovely stay. The hosts are so friendly and accommodating making sure everything is perfect."`}
+            guestName={"Chanie R"}
           />
         </Carousel>
       </div>

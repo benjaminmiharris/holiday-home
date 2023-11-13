@@ -26,6 +26,8 @@ export default function CalendarReact() {
   const [addtionalBookingDetails, setAddtionalBookingDetails] = useState();
   const [loadEventData, setLoadEventData] = useState(false);
   const [showSubmitError, setShowSubmitError] = useState(false);
+  const [sumNumberOfDays, setSumNumberOfDays] = useState();
+  const [price, setPrice] = useState({});
 
   const [excludeDates, setExcludeDates] = useState([]);
 
@@ -36,17 +38,78 @@ export default function CalendarReact() {
 
   let eventData = data;
 
+  const rateCalculator = (numberOfDays) => {
+    if (!numberOfDays) {
+      console.error("Invalid startDate or endDate");
+    }
+
+    if (numberOfDays <= 3) {
+      return setPrice({
+        price: numberOfDays * 400,
+        deposit: numberOfDays * 400 * 0.2,
+      });
+    }
+
+    if (numberOfDays < 11 && numberOfDays > 3) {
+      return setPrice({
+        price: numberOfDays * 350,
+        deposit: numberOfDays * 350 * 0.2,
+      });
+    }
+
+    if (numberOfDays > 10) {
+      return setPrice({
+        price: numberOfDays * 300,
+        deposit: numberOfDays * 300 * 0.2,
+      });
+    }
+  };
+
+  const checkNumberOfDays = (startDate, endDate) => {
+    if (!startDate || !endDate) {
+      console.error("Invalid startDate or endDate");
+      return;
+    }
+
+    console.log("end date", endDate);
+    console.log("start date", startDate);
+
+    const timeDifference = endDate.getTime() - startDate.getTime();
+
+    const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+    setSumNumberOfDays(daysDifference);
+  };
+
+  useEffect(() => {
+    checkNumberOfDays(startDate, endDate);
+  }, [startDate, endDate]);
+
+  useEffect(() => {
+    rateCalculator(sumNumberOfDays);
+  }, [sumNumberOfDays]);
+
   const sendEmail = (newEvent) => {
     console.log("email text", newEvent);
+
+    const startDateReformat = new Date(
+      newEvent.start.dateTime
+    ).toLocaleDateString("en-GB");
+
+    const endDateReformat = new Date(newEvent.end.dateTime).toLocaleDateString(
+      "en-GB"
+    );
 
     emailjs
       .send(
         "service_ry7pqjo",
         "template_urxmm6h",
         {
-          description: newEvent.description,
-          startdate: newEvent.start,
-          enddate: newEvent.end,
+          startdate: startDateReformat,
+          enddate: endDateReformat,
+          deposit: price.deposit,
+          amount: price.price,
+          guestEmail: newEvent.details.contactEmail,
         },
         "Q8iP14Sf9fa7WcnHK"
       )
@@ -93,6 +156,7 @@ export default function CalendarReact() {
       Contact Number: ${guestContactNumber}, 
       Number of Guests: ${numberOfGuests}, 
       Additional details: ${addtionalBookingDetails}`,
+
     start: {
       dateTime: startDate,
       timeZone: getBrowserTimeZone(),
@@ -101,12 +165,20 @@ export default function CalendarReact() {
       dateTime: endDate,
       timeZone: getBrowserTimeZone(),
     },
+    details: {
+      contactEmail: guestEmail,
+      contactNumber: guestContactNumber,
+      numberOfGuests: numberOfGuests,
+      additionalDetails: addtionalBookingDetails,
+    },
   };
 
   const handleBookingSubmission = () => {
     // Check if required fields are filled
     if (guestFullName && guestEmail && numberOfGuests) {
       // All required fields are filled, proceed with submission
+
+      console.log(newEvent);
       createCalendarEventHandler(newEvent);
     } else {
       setShowSubmitError(true);
@@ -230,6 +302,8 @@ export default function CalendarReact() {
               onChange={(e) => setNumberOfGuests(e.target.value)}
               required
               isInvalid={showSubmitError && !guestContactNumber}
+              min={1}
+              max={2}
             />
           </InputGroup>
 
