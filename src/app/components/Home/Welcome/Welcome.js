@@ -33,26 +33,18 @@ const Welcome = () => {
 
               <div className={styles.aboutPoints}>
                 <p className={styles.headerBoxPoints}>
-                  3 minutes walk of several shuls
+                  2 minutes walk of several shuls
                 </p>
-                <p className={styles.headerBoxPoints}>10min to shops</p>
+                <p className={styles.headerBoxPoints}>7 min walk to shops</p>
                 <p className={styles.headerBoxPoints}>
-                  25 minutes drive to Jerusalem
+                  35 minutes drive to Jerusalem
                 </p>
                 <p className={styles.headerBoxPoints}>
                   45 minutes drive to Tel Aviv
                 </p>
                 <p className={styles.headerBoxPoints}>
-                  35 minutes drive to the beach
+                  45 minutes drive to the beach
                 </p>
-
-                {/* <li>Within 3 min walk of several shuls</li>
-                <li>
-                  Within 10 minutes walk of the local ‘mercaz’ shopping area
-                </li>
-                <li>25 minutes drive to Jerusalem</li>
-                <li>45 minutes drive to Tel Aviv</li>
-                <li>35 minutes drive to the beach</li> */}
               </div>
 
               <p>

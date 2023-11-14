@@ -67,12 +67,12 @@ const Testemonials = () => {
           autoPlay={true}
           autoPlaySpeed={4000}
         >
-          <Comment
+          {/* <Comment
             title={"Best Place in RBS A"}
             numberOfStars={5}
             quote={`"fdsfsfd."`}
             guestName={"Jordan Gold"}
-          />
+          /> */}
           <Comment
             title={"Highly recommend"}
             numberOfStars={5}
