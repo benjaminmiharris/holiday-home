@@ -71,7 +71,7 @@
   .container {
     position: relative;
     width: 100%;
-    height: 1400px;
+    height: 1100px;
     overflow: hidden;
   }
 
@@ -94,7 +94,7 @@
     flex-direction: column;
     width: 100%;
     position: relative;
-    top: 8%;
+    top: 4%;
     left: 0%;
     margin: 0;
     padding: 0;

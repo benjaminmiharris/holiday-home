@@ -137,6 +137,7 @@
     flex-direction: column;
     flex-direction: column-reverse;
     margin-top: 0px;
+    top: 60px;
   }
 
   .image::before {
@@ -241,5 +242,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin: 10px;
     text-align: center;
+    border: 1px;
   }
 }

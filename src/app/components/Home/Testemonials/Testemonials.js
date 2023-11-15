@@ -67,18 +67,27 @@ const Testemonials = () => {
           autoPlay={true}
           autoPlaySpeed={4000}
         >
-          {/* <Comment
-            title={"Best Place in RBS A"}
+          <Comment
+            title={"Highly recommended!"}
             numberOfStars={5}
-            quote={`"fdsfsfd."`}
-            guestName={"Jordan Gold"}
-          /> */}
+            quote={`"I stayed at the golds apartment for a month!
+It was so nice, the place was always clean, the host is super friendly and helpful, great location!!
+Shul right next door!!
+Highly recommended!"`}
+            guestName={"Rachel S"}
+          />
           <Comment
             title={"Highly recommend"}
             numberOfStars={5}
             quote={`"Highly recommended the Golds rental unit.  The place is clean, fresh and beautifully furnished.  All amenities included. 
             An oasis in the heart of Ramat Shilo.  Our guest had a lovely stay. The hosts are so friendly and accommodating making sure everything is perfect."`}
             guestName={"Chanie R"}
+          />
+          <Comment
+            title={"Highly recommend"}
+            numberOfStars={5}
+            quote={`"This apartment, close to Yeshivat Lev HaTorah, boasts beautiful, spacious design. Thoughtful touches, bright interiors, and consistent design create a delightful atmosphere. The modern kitchen, inviting living room, and well-appointed bedroom and bathroom ensure a pleasant stay. The hosts are excellent, offering assistance and welcoming feedback."`}
+            guestName={"Rena and Yehuda"}
           />
         </Carousel>
       </div>

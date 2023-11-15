@@ -38,6 +38,20 @@ export default function CalendarReact() {
 
   let eventData = data;
 
+  useEffect(() => {
+    const fetchData = async () => {
+      // Manually trigger the data fetch
+      const response = await fetch(
+        "https://lev-server-zx35.onrender.com/getCalendarEvents"
+      );
+      const data = await response.json();
+      // Update the SWR cache with the fetched data
+      mutate("https://lev-server-zx35.onrender.com/getCalendarEvents", data);
+    };
+
+    fetchData(); // Fetch data on component mount
+  }, []);
+
   const rateCalculator = (numberOfDays) => {
     if (!numberOfDays) {
       console.error("Invalid startDate or endDate");
@@ -70,9 +84,6 @@ export default function CalendarReact() {
       console.error("Invalid startDate or endDate");
       return;
     }
-
-    console.log("end date", endDate);
-    console.log("start date", startDate);
 
     const timeDifference = endDate.getTime() - startDate.getTime();
 
