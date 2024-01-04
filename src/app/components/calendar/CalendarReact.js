@@ -59,22 +59,22 @@ export default function CalendarReact() {
 
     if (numberOfDays <= 3) {
       return setPrice({
-        price: numberOfDays * 400,
-        deposit: numberOfDays * 400 * 0.2,
+        price: numberOfDays * 450,
+        deposit: numberOfDays * 450 * 0.2,
       });
     }
 
     if (numberOfDays < 11 && numberOfDays > 3) {
       return setPrice({
-        price: numberOfDays * 350,
-        deposit: numberOfDays * 350 * 0.2,
+        price: numberOfDays * 400,
+        deposit: numberOfDays * 400 * 0.2,
       });
     }
 
     if (numberOfDays > 10) {
       return setPrice({
-        price: numberOfDays * 300,
-        deposit: numberOfDays * 300 * 0.2,
+        price: numberOfDays * 350,
+        deposit: numberOfDays * 350 * 0.2,
       });
     }
   };
