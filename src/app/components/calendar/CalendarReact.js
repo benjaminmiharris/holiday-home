@@ -321,7 +321,7 @@ export default function CalendarReact() {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Control
               as="textarea"
-              rows={3}
+              rows={2}
               placeholder="Additional details"
               onChange={(e) => setAddtionalBookingDetails(e.target.value)}
             />
