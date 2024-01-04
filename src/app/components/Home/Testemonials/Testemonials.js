@@ -86,7 +86,7 @@ Highly recommended!"`}
           <Comment
             title={"Look forward to returning!"}
             numberOfStars={5}
-            quote={`"Walk up a flight of stairs to a charming porch with a table & chairs (morning coffee?). 5-star accommodation in a quiet area across from a park and Shules. Spacious, modern apartment with fully equipped kosher kitchen, spa-like bathroom, comfy bedroom, couch, washer & dryer, WiFi. Friendly host family. We look forward to returning!"`}
+            quote={`"Walk up a flight of stairs to a charming porch with a table & chairs (morning coffee?). 5-star accommodation in a quiet area across from a park and Shuls. Spacious, modern apartment with fully equipped kosher kitchen, spa-like bathroom, comfy bedroom, couch, washer & dryer, WiFi. Friendly host family. We look forward to returning!"`}
             guestName={"Josh and Barbara "}
           />
           <Comment
