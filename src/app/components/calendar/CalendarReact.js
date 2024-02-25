@@ -306,13 +306,13 @@ export default function CalendarReact() {
               placeholder="Mobile"
               onChange={(e) => setGuestContactNumber(e.target.value)}
               required
+              isInvalid={showSubmitError && !guestContactNumber}
             />
             <Form.Control
               type="number"
               placeholder="No of Guests"
               onChange={(e) => setNumberOfGuests(e.target.value)}
               required
-              isInvalid={showSubmitError && !guestContactNumber}
               min={1}
               max={2}
             />
