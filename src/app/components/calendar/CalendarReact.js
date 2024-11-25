@@ -31,6 +31,41 @@ export default function CalendarReact() {
 
   const [excludeDates, setExcludeDates] = useState([]);
 
+  const [errorBooking, setErrorBooking] = useState("");
+
+  const isDateInExcludedRange = (date) => {
+    return excludeDates.some(({ start, end }) => date >= start && date <= end);
+  };
+
+  const isRangeValid = (start, end) => {
+    if (!start || !end) return true;
+
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      if (isDateInExcludedRange(new Date(d))) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const handleStartDateChange = (date) => {
+    setErrorBooking("");
+    if (date && endDate && !isRangeValid(date, endDate)) {
+      setErrorBooking("Selected range includes unavailable dates.");
+      return;
+    }
+    setStartDate(date);
+  };
+
+  const handleEndDateChange = (date) => {
+    setErrorBooking("");
+    if (startDate && date && !isRangeValid(startDate, date)) {
+      setErrorBooking("Selected range includes unavailable dates.");
+      return;
+    }
+    setEndDate(date);
+  };
+
   const { data, error } = useSWR(
     "https://lev-server-zx35.onrender.com/getCalendarEvents",
     fetcher
@@ -154,6 +189,8 @@ export default function CalendarReact() {
     }
   }, [eventData, loadEventData]);
 
+  console.log("excludeDates", excludeDates);
+
   function getBrowserTimeZone() {
     // Get the time zone name
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -239,7 +276,7 @@ export default function CalendarReact() {
           selectsStart
           startDate={startDate}
           endDate={endDate}
-          onChange={(date) => setStartDate(date)}
+          onChange={(date) => handleStartDateChange(date)}
           filterDate={(d) => {
             return new Date() < d;
           }}
@@ -257,7 +294,7 @@ export default function CalendarReact() {
           startDate={startDate}
           endDate={endDate}
           minDate={startDate}
-          onChange={(date) => setEndDate(date)}
+          onChange={(date) => handleEndDateChange(date)}
           filterDate={(d) => {
             return new Date() < d;
           }}
@@ -265,6 +302,7 @@ export default function CalendarReact() {
           excludeDateIntervals={excludeDates}
           required
         />
+        {error && <p className={styles.error}>{error}</p>}
       </div>
     );
   };
